@@ -1,6 +1,1 @@
-{
-    "name":"DBun",
-    "lname":"Taest1",
-    "age":34,
-    "city": "Boryspil"
-}
+{"name":"DBun","lname":"Taest1","age":34,"city":"Boryspil","address":"street123","dkd":"dkd"}
