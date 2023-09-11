@@ -48,8 +48,29 @@ for (let i = 0; i < baseArr.length; i++) {
 
   console.log(resultWithUpperC)
 }
-getOnlyString(arr1)
+// getOnlyString(arr1)
 
 
 // console.log(result)
 // console.log(resultWithUpperC)
+
+
+let mArr22 = [
+  [1, 3, 'Shrek'],
+  [4, 10],
+  [40, 50]
+]
+
+// let nameShrek = mArr22[0][2]
+// console.log(nameShrek)
+
+
+for (let i = 0; i < mArr22.length; i++ ){
+let smalArr = mArr22[i]
+  for (let y = 0; y < smalArr; y++){
+console.log("all array [" + i + "]["+ y + "] = " + smalArr[y])
+
+  }
+
+
+}
