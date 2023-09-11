@@ -1,21 +1,25 @@
-const fetch = require('node-fetch');
 const fs = require('fs');
 
-const apiUrl = 'https://reqres.in/api/users?page=1&per_page=5';
-const jsonFileName = 'response.json';
+function extractNamesFromJSONFile(filename) {
+  try {
+    // Read the JSON file
+    const jsonData = fs.readFileSync(filename, 'utf8');
+    
+    // Parse the JSON data
+    const data = JSON.parse(jsonData);
 
-fetch(apiUrl)
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-    return response.json();
-  })
-  .then((data) => {
-    // Save the JSON response to a file
-    fs.writeFileSync(jsonFileName, JSON.stringify(data, null, 2), 'utf8');
-    console.log(`Data saved to ${jsonFileName}`);
-  })
-  .catch((error) => {
-    console.error('Fetch error:', error);
-  });
+    // Extract names into an array
+    const namesArray = data.data.map(item => item.first_name);
+
+    return namesArray;
+  } catch (error) {
+    console.error('Error reading or processing the JSON file:', error);
+    return [];
+  }
+}
+
+// Example usage:
+const jsonFileName = 'response_1694287579730.json';
+const names = extractNamesFromJSONFile(jsonFileName);
+
+console.log('Names extracted from the JSON file:', names);
